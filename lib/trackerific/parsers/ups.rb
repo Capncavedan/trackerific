@@ -50,7 +50,7 @@ class Trackerific::Parsers::UPS < Trackerific::Parsers::Base
   end
 
   def location(a)
-    a['ActivityLocation']['Address'].map {|k,v| v}.join(" ")
+    a['ActivityLocation']['Address'].to_h.map{ |k,v| v }.join(" ")
   end
 
   def activity
